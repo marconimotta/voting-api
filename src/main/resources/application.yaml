@@ -1,0 +1,21 @@
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /api-docs
+    enabled: true
+server:
+  port: 8080
+spring:
+  application:
+    name: voting-api
+  data:
+    mongodb:
+      uri: mongodb+srv://voting-test-hlg.hzydmq4.mongodb.net/?retryWrites=true&w=majority&appName=voting-test-hlg
+      database: votingdb
+      username: votingsicred
+      password: zFOFzDdG16VsJ4Fv
+      
+user-integrate:
+  host: https://user-info.herokuapp.com
