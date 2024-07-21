@@ -38,6 +38,19 @@ spring:
 ### Swagger ui
 - After configuring the local environment, you can open swagger-ui through the url: http://localhost:<your_port>/swagger-ui.html
 
+### Versioning
+When developing APIs with Spring Boot and Java, versioning is a crucial practice to ensure compatibility and service evolution without interrupting existing clients. In this project, versioning in the URL was chosen in case it was necessary to perform an API evolution.
+
+This is the most common and widely accepted method for versioning APIs. The version is included in the API URL.
+
+```
+GET /api/v1/agenda
+GET /api/v2/agenda
+```
+
+Versioning in the URL (/api/v1/resource) is the most direct and easiest method to understand and implement, which is why it is the most used and recommended, especially in public APIs.
+
+
 ## Questions
 
 Have questions? Send-me e-mail: marconi.motta@hotmail.com
