@@ -32,7 +32,7 @@ public class UserIntegrateClientService {
 		} catch (final FeignException.NotFound e) {
 			log.error("Api para checagem de cpf está sem conexão");
 		}
-		return true;
+		return false;
 	}
 
 }

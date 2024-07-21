@@ -23,4 +23,5 @@ public class Constants {
 	public static final String AGENDA_GET_ID_SUMMARY = "Endpoint to get agenda by Id";
 	public static final String AGENDA_OPEN_SESSION_SUMMARY = "Endpoint to open a new session into a agenda";
 	public static final String AGENDA_VOTE_SUMMARY= "Endpoint to vote in a open session";
+	public static final String DOCUMENT_NUMBER_SIZE_MESSAGE="São aceito apenas 11 numeros para o CPF.";
 }
