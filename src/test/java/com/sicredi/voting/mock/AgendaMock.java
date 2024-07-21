@@ -21,6 +21,7 @@ public class AgendaMock {
 	public static String SUBJECT_EXAMPLE = "Example Test";
 	public static String CPF_EXAMPLE_1 = "18029657005";
 	public static String CPF_EXAMPLE_2 = "90922682089";
+	public static Long TIME_SESSION_VOTE_EXAMPLE = 2L;
 
 	public static List<Agenda> getList() {
 		final List<Agenda> list = new ArrayList<Agenda>();
@@ -93,7 +94,7 @@ public class AgendaMock {
 
 	public static VoteSessionRequestDTO getNewVoteSessionOk() {
 		return VoteSessionRequestDTO.builder().agendaId(UUID.randomUUID().toString())
-				.closeDate(LocalDateTime.now().plusHours(2)).build();
+				.openSessionTimeMinutes(TIME_SESSION_VOTE_EXAMPLE).build();
 	}
 
 	public static VoteSessionRequestDTO getNewVoteSessionWithoutCloseDateOk() {

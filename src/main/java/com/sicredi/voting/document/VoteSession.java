@@ -24,8 +24,9 @@ public class VoteSession {
 
 	private Long votesNo;
 	
-	@Setter
 	private LocalDateTime closeDate;
+	
+	private Long openSessionTimeMinutes;
 
 	public void updateVotesCount(final boolean choosedVote) {
 		totalVotes++;

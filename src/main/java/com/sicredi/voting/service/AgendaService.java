@@ -52,11 +52,13 @@ public class AgendaService {
 		if (Objects.nonNull(agenda.getVoteSession())) {
 			throw new UnauthorizedException(Constants.VOTE_SESSION_READY_EXISTS);
 		}
-		final VoteSession voteSession = VoteSession.builder().closeDate(voteSessionRequest.getCloseDate())
+		
+		var minuteToAdd = (Objects.nonNull(voteSessionRequest.getOpenSessionTimeMinutes())) ? voteSessionRequest.getOpenSessionTimeMinutes() :  Constants.AGENDA_DEFAULT_TIME;
+		var closedDate = LocalDateTime.now().plusMinutes(minuteToAdd);
+		final VoteSession voteSession = VoteSession.builder().closeDate(closedDate)
+				.openSessionTimeMinutes(minuteToAdd)
 				.totalVotes(0L).votesYes(0L).votesNo(0L).build();
-		if (Objects.isNull(voteSessionRequest.getCloseDate())) {
-			voteSession.setCloseDate(LocalDateTime.now().plusMinutes(Constants.AGENDA_DEFAULT_TIME));
-		}
+		
 		agenda.setVoteSession(voteSession);
 
 		return AgendaResponseDTO.convertEntityToDTO(agendaRepository.save(agenda));

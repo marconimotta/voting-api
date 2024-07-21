@@ -11,7 +11,11 @@ import org.springframework.web.client.HttpStatusCodeException;
 import com.sicredi.voting.integration.UserIntegrateClient;
 import com.sicredi.voting.integration.dto.UserIntegrateStatusDTO;
 
+import feign.FeignException;
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class UserIntegrateClientService {
 	
 	@Autowired
@@ -25,8 +29,10 @@ public class UserIntegrateClientService {
 			if (!ex.getStatusCode().equals(HttpStatus.NOT_FOUND)) {
 				throw ex;
 			}
+		} catch (final FeignException.NotFound e) {
+			log.error("Api para checagem de cpf está sem conexão");
 		}
-		return false;
+		return true;
 	}
 
 }
